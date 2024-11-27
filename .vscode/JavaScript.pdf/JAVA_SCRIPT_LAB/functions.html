@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function myFunction(){
+            console.log("Hello guys.");
+            console.log("Welcome to javascript couce.")
+        }
+
+        let arr = [25,1,45,1,6,7,9]; 
+
+         /*
+        arr.forEach(function print(val,index,arr) {       //val => value of each index (using forEach())
+            console.log(val*val ,index ,arr);           //always modify the same array
+        })
+
+        let new_arr = arr.map(function print(val) {       //val => value of each index (using map())
+            return val*val;                         //always returns a different array
+        });
+
+        let even_array = arr.filter(function print(val){    //val => value of each index (using map())
+            return val %2 == 0 ;                    //always returns a filtered array
+        })
+        */
+       
+        let sum_array = arr.reduce(function print(result,value){
+            //return result + value;                         //for sum of the array elements
+            return result > value ? result : value;                 //for maximum number of the array elements 
+            //return result * value;                         //for multiplication of the elements of the array           
+        })
+
+        //console.log(new_arr);
+        //console.log(even_array);
+        console.log(sum_array);
+
+        function sum(a,b){
+            return a+b;
+        }
+
+        const mul = (x,y)=>{        //modern JS method
+            console.log(x*y);
+        }
+
+        function vowels(str){
+            let count=0;
+            for(i=0; i<str.length; i++){
+                if(str[i]=="a" || str[i]=="e" || str[i]=="i" || str[i]=="o" || str[i]=="u" || str[i]=="A" || str[i]=="E" || str[i]=="I" || str[i]=="O" || str[i]=="U"){
+                    count++;
+                }
+            }     
+            return count;
+        }
+
+        myFunction();
+        let str = prompt("Enter a string");
+        alert("number of vowels present in the string : " + vowels(str));
+        mul(15,6);
+        console.log(sum(10,20));
+    </script>
+</body>
+</html>

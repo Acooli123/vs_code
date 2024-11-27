@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h2>JavaScript Objects</h2>
+<p>JavaScript objects are mutable.</p>
+<p>Any changes to a copy of an object will also change the original object:</p>
+<script>
+const person = {
+firstName: "John",
+lastName: "Doe",
+age:50,
+eyeColor: "blue"
+};
+document.write(person.firstName + " is " + person.age + " years old.");
+const x = person;
+x.age = 10;
+document.write(person.firstName + " is " + person.age + " years old.");
+</script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            height: 150px;
+            width: 100px;
+            background-color: aqua;
+            color:rgb(135, 68, 20);
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-style: italic;
+            border: 3px solid rgb(16, 1, 1);
+        }
+    </style>
+</head>
+<body>
+    <button onclick="console.log('button was clicked show in page');alert('hello students');" class="btn1">click here!!</button>
+    <button ondblclick="console.log('button was clicked show in console');alert('hello students');" class="btn2">click me press 2 times!!</button>
+    <div onmouseover="alert('You are inside div');console.log('You are inside div');">This is a box</div>
+    <button id="mode">Change mode</button>
+    <script>
+        let btn1 = document.querySelector(".btn1");
+        let btn2 = document.querySelector(".btn2");
+        /*
+        btn.ondblclick = (e) =>{
+            console.log(e);
+            console.log("button was clicked.");
+            let a = 25;
+            a++;
+            console.log(a);
+        }
+        /*
+        let div = document.querySelector("div");
+        div.onmouseover = () =>{
+            console.log("div was clicked.");
+        }
+        
+        btn2.addEventListener("dblclick",() =>{
+            console.log("button2 was clicked");
+        })
+
+        btn1.addEventListener("click",(e) =>{
+            console.log("button1 was clicked");
+            console.log(e);
+            console.log(e.type);           
+        })
+        
+        btn1.addEventListener("click",() =>{
+            console.log("button1 was clicked ---handler1");
+        })
+        btn1.addEventListener("click",() =>{
+            console.log("button1 was clicked ---handler2");
+        })
+        btn1.addEventListener("click",() =>{
+            console.log("button1 was clicked ---handler3");
+        })
+        const handler4 = () =>{
+            console.log("button1 was clicked ---handler4");
+        };
+        btn1.addEventListener("click",handler4);
+        btn1.removeEventListener("click",handler4);
+        */
+        let mode = document.querySelector("#mode");
+        let current_mode = "dark";
+        mode.addEventListener("click",() =>{
+            if(current_mode == "dark"){
+                current_mode = "light";
+                document.querySelector("body").style.backgroundColor = "white";
+            }else{
+                current_mode = "dark";
+                document.querySelector("body").style.backgroundColor = "black";
+                document.querySelector("#mode").style.backgroundColor = "green";
+                document.querySelector(".btn1").style.backgroundColor = "green";
+                document.querySelector(".btn2").style.backgroundColor = "green";
+            }
+
+            console.log(current_mode);
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: papayawhip;
+            text-align: center;
+        }
+        .heading1 {
+            background-color: rgb(156, 124, 164);
+        }
+        button {
+            color: whitesmoke;
+            background-color: rgb(71, 5, 137);
+        }
+        div {
+            background-color: peru;
+        }
+        #para {
+            background-color: yellowgreen;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="heading1">Javascript with Apna College</h1>
+    <p id="para">1st paragraph</p>
+    <p id="para">2nd paragraph</p>
+    <div>
+        <h2><i>Fruits</i></h2>
+        <ul>
+            <li>mango</li>
+            <li>apple</li>
+            <li>banana</li>
+            <li>lichi</li>
+        </ul>
+    </div>
+    <script>
+        document.write("Hello Dosto <br>");
+        document.write("today we are trying to learn JS"); 
+        
+        //quarySelector ("class / id / tag Name")   
+
+        let tag = document.querySelector("p");                     
+        let tags = document.querySelectorAll("p"); 
+        console.dir(tag);                   //return 1st element
+        console.dir(tags);                   //return node list
+
+        let cls = document.querySelector(".heading1");
+        let cls_s = document.querySelectorAll(".heading1");  
+        console.dir(cls);               //return 1st element  
+        console.dir(cls_s);             //return node list
+
+        let ID = document.querySelector("#para");
+        let ID_S = document.querySelectorAll("#para");
+        console.dir(ID);                 //return 1st element
+        console.dir(ID_S)                  //return node list
+
+        let div = document.querySelector("div");
+        console.dir(div);
+
+    </script>
+    <br>
+    <button>click here!!</button>
+</body>
+</html>

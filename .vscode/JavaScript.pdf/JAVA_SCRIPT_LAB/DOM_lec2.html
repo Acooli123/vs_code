@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: rgb(209, 161, 89);
+        }
+        #box {
+            height: 250px;
+            width: 100px;
+            background-color: aqua;
+            font-family:cursive;
+            font-style: italic;
+            border: 3px solid rgb(105, 8, 8);
+        }
+        h2 {
+            text-align: center;
+        }
+        ul {
+            text-align: left;
+        }
+        .paragraph {
+            color:rgb(15, 178, 15);
+            background-color: bisque;
+        }
+    </style>
+</head>
+<body>
+    <div id="box" name="JSdiv">This is a div
+        <ul> <b>Fruits</b>
+            <li>mango</li>
+            <li>apple</li>
+            <li>banana</li>
+            <li>lichi</li>
+        </ul>
+    </div>
+    <p class="paragraph"> This is paragraph 1</p>
+    <script>
+        /*
+        let div = document.querySelector("div");
+        console.dir(div);
+        let id = div.getAttribute("id");
+        console.log(id);
+        let name = div.getAttribute("name");
+        console.log(name);
+        let para = document.querySelector("p");
+        console.log(para.getAttribute("class"));
+        console.log(para.setAttribute("class","newClass"));             //setAttribute contains two parameters (attribute,value)
+        
+       let new_button = document.createElement("button");
+       new_button.innerText = "Click here!!";
+       console.dir(new_button);
+       let para = document.querySelector("p");
+       //div.append(new_button);
+       //div.prepend(new_button);
+       //div.before(new_button);
+       para.after(new_button);
+       */
+
+       let heading = document.createElement("h1");
+       heading.innerHTML = "<i>Now we are adding new heading.</i>";
+       let para = document.querySelector("p");
+       para.prepend(heading);
+       //para.remove();
+       //heading.remove();
+    </script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let str="Apna College"
+        //let n=prompt("Enter your range(0-100):")
+        //for-loop
+        /*for(let i=1;i<=n;i++){
+            console.log(i);
+        }*/
+       let i=1,size=0
+       //whie loop
+       /*while(i<=n){
+        console.log(i)
+        sum=sum+i
+        i++
+       }*/
+
+       //do-while loop
+       /*do{
+        console.log(i)
+        sum=sum+i
+        i++
+       }while(i<=n);*/
+
+       //for-of loop
+       /*for(i of str){
+        console.log("i =",i)
+        size++
+       }*/ 
+
+       //for in loop
+       let student = {
+        Name:"Soumyajit Acooli",
+        Dept:"CSE(IOTCS)",
+        YGPA:8.7,
+        age:20,
+        College:"HITK"
+       }
+       for(i in student){
+        console.log("key = ",i,"\t value = ",student[i])
+        i++
+       }
+       /*console.log("Loop has ended")
+       console.log("size =",size)*/
+    </script>
+</body>
+</html>

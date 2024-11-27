@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button class="name">artist name</button>
+    <p class="artist"></p>
+    <script>
+        let artist = document.querySelector(".artist");
+        let btn = document.querySelector(".name");
+        let URL = "https://api.artic.edu/api/v1/artworks";
+        
+        const get_api = async() => {
+            console.log("getting data...");
+            let response = await fetch(URL);
+            console.log(response);              //JSON format
+            let data = await response.json();
+            //console.log(data);
+            //console.log(data.data[0].artist_title);
+            artist.innerText = data.data[1].artist_title;
+        };
+
+        btn.addEventListener("click",get_api);
+    </script>
+</body>
+</html>

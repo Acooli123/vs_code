@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stone Paper Scissors Game</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        h1 {
+            background-color: rgb(47, 47, 67);
+            color: rgb(226, 223, 220);
+            height: 5rem;
+            line-height: 5rem;
+            display: inline;
+            padding: 2rem;
+            font-family:cursive;
+        }
+
+        .choice {
+            height: 160px;
+            width: 160px;
+            display: flex;
+            justify-content: center;
+            border-radius: 50%;
+        }
+
+        .choice :hover {
+            opacity: 0.5;
+            cursor: pointer;
+            background-color: rgba(0, 0, 0, 0.438);
+        }
+
+        .container {
+            display: flex;
+            text-align: center;
+            gap: 3rem;
+            align-items: center;
+            justify-content: center;
+            margin-top: 5rem;
+        }
+
+        img {
+            height: 150px;
+            width: 150px;
+            object-fit: cover;
+            border-radius: 5rem;
+            box-shadow: 0 0 1rem rgba(0,0,0,0.4);
+        }
+
+        .score-board {
+            display: flex;
+            justify-content: center;
+            gap: 5rem;
+            font-size: 2rem;
+            margin-top: 3rem;
+        }
+
+        #user-score {
+            font-size: 5rem;
+        }
+
+        #comp-score {
+            font-size: 5rem;
+        }
+
+        .msg-container {
+            margin-top: 5rem;
+        }
+
+        #msg {
+            background-color: rgb(15, 14, 14);
+            color: rgb(144, 149, 149);
+            font-size: 2rem;
+            display: inline;
+            padding: 1rem;
+            border-radius: 1rem;
+        }
+
+        #cause {
+            color: rgb(181, 113, 113);
+            font-size: 2rem;
+            margin-top: 1rem;
+            padding: 1rem;
+            font-style: oblique;
+            font-weight: bold;
+        }
+
+        body {
+            background-color: rgba(127, 255, 212, 0.6);
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Stone Paper Scissors</h1>
+    <div class="container">
+        <div class="choice" id="stone">
+            <img src = "./.vscode/JavaScript.pdf/JAVA_SCRIPT_LAB/image/stone.png" alt="stone🪨"> 
+        </div>
+        <div class="choice" id="paper">
+            <img src = "./.vscode/JavaScript.pdf/JAVA_SCRIPT_LAB/image/paper.png" alt="paper📄">
+        </div>
+        <div class="choice" id="scissors">
+            <img src = "./.vscode/JavaScript.pdf/JAVA_SCRIPT_LAB/image/scissors.png" alt="scissors✂️">
+        </div>
+    </div>  
+
+    <div class="score-board">
+        <div class="score">
+            <p id="user-score">0</p>
+            <p>You</p>
+        </div>
+        <div class="score">
+            <p id="comp-score">0</p>
+            <p>Comp</p>
+        </div>
+    </div>
+
+    <div class="msg-container">
+        <p id="msg">play your move</p>
+    </div>
+
+    <p id="cause"></p>
+
+    <script>
+        let user_score = 0;
+        let comp_score = 0;
+
+        const choices = document.querySelectorAll(".choice");
+        const msg = document.querySelector("#msg");
+        const cause = document.querySelector("#cause");
+        const user_score_para = document.querySelector("#user-score");
+        const comp_score_para = document.querySelector("#comp-score");
+
+        const gen_comp_choice = () => {
+            const options = ["stone", "paper", "scissors"]; 
+            const rand_index = Math.floor(Math.random() * 3);
+            return options[rand_index];
+        }
+
+        const draw = () => {
+            console.log("Game is draw");
+            msg.innerText = "Draw Game.Play Again!!!"
+            cause.innerText = "";
+            msg.style.backgroundColor = "rgb(15, 14, 14)";
+        }
+
+        const show_winner = (user_win,user_choice,comp_choice) => {
+            if(user_win){
+                console.log("You Win.");
+                user_score++;
+                user_score_para.innerText = `${user_score}`;
+                msg.innerText = "You Win!!";
+                cause.innerText = `Your ${user_choice} beats ${comp_choice}`;
+                msg.style.backgroundColor = "green";
+                msg.style.color = "white";
+            }else{
+                console.log("You Lose.");
+                comp_score++;
+                comp_score_para.innerText = `${comp_score}`;
+                msg.innerText = "You Lose";
+                cause.innerText = `${comp_choice} beats Your ${user_choice}`;
+                msg.style.backgroundColor = "red";
+                msg.style.color = "white";
+            }
+        }
+
+        const playGame = (user_choice) => {
+            console.log("user choice =",user_choice);
+            //Generate computer choice
+            const comp_choice = gen_comp_choice()
+            console.log("computer choice =",comp_choice);
+
+            if(user_choice == comp_choice){
+                draw();
+            }else{
+                let user_win = true;
+                if(user_choice == "stone"){
+                    //computer choice = paper & scissors
+                    user_win = comp_choice == "paper" ? false : true;
+                }else if(user_choice == "paper"){
+                    //computer choice = stone & scissors
+                    user_win = comp_choice == "stone" ? true : false;
+                }else{
+                    //computer choice = stone & paper
+                    user_win = comp_choice == "stone" ? false : true;
+                }
+                show_winner(user_win,user_choice,comp_choice);
+            }
+        }
+
+        choices.forEach((choice) => {
+            console.log(choice);
+            choice.addEventListener("click", () => {
+                const user_choice = choice.getAttribute("id");
+                console.log("choice was clicked with id",user_choice);
+                playGame(user_choice);
+            })
+        })
+    </script>
+</body>
+</html>

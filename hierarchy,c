@@ -1,0 +1,11 @@
+#include<stdio.h>
+int main(){
+    float i = 2;
+    int j = 3;
+    int k = i/j*j;
+    int l = j/i*i;
+    float a = j/i;
+    printf("%d %d %f", k,l,a);
+
+    return 0;
+}

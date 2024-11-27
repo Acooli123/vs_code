@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Username Validation</title>
+    <script>
+        function validateUsername(username) {
+            // Regular expression for basic username validation
+            // Criteria: 3-15 characters, alphanumeric, underscores, hyphens
+            const regex = /^[a-zA-Z0-9_-]{3,15}$/;
+            return regex.test(username);
+        }
+
+        function checkUsername() {
+            const username = document.getElementById('username').value;
+            const result = document.getElementById('result');
+            
+            if (validateUsername(username)) {
+                result.textContent = 'Valid Username!';
+                result.style.color = 'green';
+            } else {
+                result.textContent = 'Invalid Username! Must be 3-15 characters long and can include letters, numbers, underscores, and hyphens.';
+                result.style.color = 'red';
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Username Validation</h1>
+    <input type="text" id="username" placeholder="Enter your username">
+    <button onclick="checkUsername()">Validate</button>
+    <p id="result"></p>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Checker</title>
+    <script>
+        // Function to check if the number is prime
+        function isPrime(num) {
+            if (num <= 1) return false;
+            for (let i = 2; i <= Math.sqrt(num); i++) {
+                if (num % i === 0) return false;
+            }
+            return true;
+        }
+
+        // Function to check if the number is a palindrome
+        function isPalindrome(num) {
+            const str = num.toString();
+            const reversedStr = str.split('').reverse().join('');
+            return str === reversedStr;
+        }
+
+        // Function to find the factorial of the number
+        function factorial(num) {
+            if (num === 0 || num === 1) return 1;
+            let fact = 1;
+            for (let i = 2; i <= num; i++) {
+                fact *= i;
+            }
+            return fact;
+        }
+
+        // Function to perform all checks and display results
+        function checkNumber() {
+            const num = parseInt(document.getElementById('number').value);
+            const primeResult = document.getElementById('primeResult');
+            const palindromeResult = document.getElementById('palindromeResult');
+            const factorialResult = document.getElementById('factorialResult');
+            
+            primeResult.textContent = isPrime(num) ? 'Yes' : 'No';
+            palindromeResult.textContent = isPalindrome(num) ? 'Yes' : 'No';
+            factorialResult.textContent = factorial(num);
+        }
+    </script>
+</head>
+<body>
+    <h1>Number Checker</h1>
+    <input type="number" id="number" placeholder="Enter a number" required>
+    <button onclick="checkNumber()">Check</button>
+
+    <h2>Results:</h2>
+    <p>Is Prime: <span id="primeResult"></span></p>
+    <p>Is Palindrome: <span id="palindromeResult"></span></p>
+    <p>Factorial: <span id="factorialResult"></span></p>
+</body>
+</html>
